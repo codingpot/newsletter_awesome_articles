@@ -1,2 +1,29 @@
-# newsletter_awesome_articles
-The aim of this project is to publish and archive newsletters to a target email address. 
+# Publish Newsletter Curated by a Group of People
+
+Even though the name says **Group of People**, it can be just you. The aim of this project is to publish and archive newsletters to a target email address. 
+
+## How to publish?
+
+It basically collects the number of markdowns under `/current` directory. The name of markdowns should be formatted as `YYYY-MM-DD hh:mm` because the newsletter system could pick up the most latest top-k ones.
+
+## How to archive
+
+When the newsletter system publishes a newsletter, it will collect up to top-k markdowns and move them to `/archive/issue{number}` directory. Also possibly, it will give you a way to send archieved newsletter afterwards with a CLI.
+
+## Markdown format 
+
+```md
+date: YYYY-MM-DD hh:mm
+author: author name
+title: title
+thumbnail: image URL in `/assets` directory of this repo
+link: link URL to the original 
+summary: preferably up to 2-3 sentences
+opinion: preferably up to 5-8 sentences
+```
+
+## Newsletter layout
+
+The referenced newsletter layout is below that I have used for other purposes.
+
+![](https://raw.githubusercontent.com/deep-diver/fb-group-post-fetcher/master/static/images/preview.png)
