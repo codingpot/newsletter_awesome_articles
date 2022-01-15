@@ -2,6 +2,8 @@
 
 Even though the name says **Group of People**, it can be just you. The aim of this project is to publish and archive newsletters to a target email address. 
 
+![](https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png)
+
 ## How to publish?
 
 It basically collects the number of markdowns under `/current` directory. The name of markdowns should be formatted as `YYYY-MM-DD hh:mm` because the newsletter system could pick up the most latest top-k ones.
