@@ -18,5 +18,22 @@ func TestNewArticle(t *testing.T) {
 		Tags:      []string{"blog", "oss"},
 	}
 
-	assert.Equal(t, "2022-01-17", article.Date, "기대값과 결과값이 다릅니다.")
+	assert.Equal(t, "2022-01-17", article.Date, "Wrong Number")
+}
+
+func TestNewNewsletter(t *testing.T) {
+	article1 := Article{
+		Title: "My Article1",
+	}
+
+	article2 := Article{
+		Title: "My Article2",
+	}
+
+	newsletter := Newsletter{
+		Articles: []Article{article1, article2},
+	}
+
+	assert.Equal(t, "My Article1", newsletter.Articles[0].Title, "Wrong Number")
+	assert.Equal(t, "My Article2", newsletter.Articles[1].Title, "Wrong Number")
 }
