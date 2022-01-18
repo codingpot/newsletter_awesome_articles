@@ -1,7 +1,9 @@
 package internal
 
+import "time"
+
 type Article struct {
-	Date      string
+	Date      time.Time
 	Title     string
 	Author    string
 	Thumbnail string

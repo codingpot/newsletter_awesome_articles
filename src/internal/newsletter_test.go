@@ -8,7 +8,6 @@ import (
 
 func TestNewArticle(t *testing.T) {
 	article := Article{
-		Date:      "2022-01-17",
 		Title:     "My Article",
 		Author:    "Chansung",
 		Thumbnail: "https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png",
@@ -18,7 +17,7 @@ func TestNewArticle(t *testing.T) {
 		Tags:      []string{"blog", "oss"},
 	}
 
-	assert.Equal(t, "2022-01-17", article.Date, "Wrong Number")
+	assert.Equal(t, "My Article", article.Title, "Wrong Title")
 }
 
 func TestNewNewsletter(t *testing.T) {
