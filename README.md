@@ -41,3 +41,10 @@ opinion: preferably up to 5-8 sentences
 The referenced newsletter layout is below that I have used for other purposes.
 
 ![](https://raw.githubusercontent.com/deep-diver/fb-group-post-fetcher/master/static/images/preview.png)
+
+## Todo
+
+- [ ] Parsing Markdown
+- [ ] Filling Template
+- [ ] Sending Email
+- [ ] Move Current Markdowns to Archive
