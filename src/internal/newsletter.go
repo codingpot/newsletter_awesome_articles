@@ -2,15 +2,20 @@ package internal
 
 import "time"
 
-type Article struct {
-	Date      time.Time
+type FrontPart struct {
+	Date      string
 	Title     string
 	Author    string
 	Thumbnail string
 	Link      string
-	Summary   string
-	Opinion   string
 	Tags      []string
+}
+
+type Article struct {
+	Front   FrontPart
+	Date    time.Time
+	Summary string
+	Opinion string
 }
 
 type Newsletter struct {
