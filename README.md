@@ -1,3 +1,5 @@
+[![ci](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml)
+
 # Publish Newsletter Curated by a Group of People
 
 Even though the name says **Group of People**, it can be just you. The aim of this project is to publish and archive newsletters to a target email address. 
