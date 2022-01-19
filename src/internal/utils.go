@@ -20,7 +20,6 @@ func ParseArticle(article string) Article {
 
 	rest, err := frontmatter.Parse(strings.NewReader(article), &newArticle.Front)
 	if err != nil {
-		// Treat error.
 		fmt.Println(err)
 	}
 
