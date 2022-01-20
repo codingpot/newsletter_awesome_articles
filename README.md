@@ -36,6 +36,7 @@ thumbnail: image URL
 link: link URL to the original 
 summary: preferably up to 2-3 sentences
 opinion: preferably up to 5-8 sentences
+tags: ["tag1", "tag2"]
 ```
 
 ## Newsletter layout
@@ -46,7 +47,7 @@ The referenced newsletter layout is below that I have used for other purposes.
 
 ## Todo
 
-- [ ] Parsing Markdown
+- [X] Parsing Markdown
 - [ ] Filling Template
 - [ ] Sending Email
 - [ ] Move Current Markdowns to Archive
