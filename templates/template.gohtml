@@ -35,7 +35,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff">
       <div class="Gmail" style="height: 1px !important; margin-top: -1px !important; max-width: 800px !important; min-width: 800px !important; width: 800px !important;"></div>
       <div style="display: none; max-height: 0px; overflow: hidden;">
-        코딩 맛집 뉴스레터
+        {{ .Title }} 
       </div>
       <!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
       <div style="display: none; max-height: 0px; overflow: hidden;">
@@ -43,11 +43,11 @@
       </div>
 
       <!-- START CARD 2 -->
-      {{template "header" .}}
+      {{template "header" .Header}}
       <!-- END CARD 2 -->
 
       <!-- TITLE -->
-      {{template "title" .}}
+      {{template "title" .FirstSection}}
       <!-- TITLE -->
 
       <!-- START COLUMNS -->
@@ -58,7 +58,7 @@
               <td width="100%" align="center">
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" class="container">
                 <!-- 2 COLUMNS -->
-                {{range .Article}}
+                {{range .ArticleTuples}}
                   {{template "main" .}}
                 {{end}}
                 <!-- END 2 COLUMNS -->
@@ -84,7 +84,7 @@
       <![endif]-->
       <!-- END SPACER -->
 
-      {{template "footer"}}
+      {{template "footer" .}}
       <!-- FOOTER -->
 
       <!-- FOOTER -->
