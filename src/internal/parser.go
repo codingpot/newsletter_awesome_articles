@@ -5,7 +5,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/adrg/frontmatter"
+	"gopkg.in/yaml.v3"
 )
 
 func ParseDate(date string) (time.Time, error) {
@@ -15,10 +15,9 @@ func ParseDate(date string) (time.Time, error) {
 }
 
 func ParseArticle(article string) Article {
-	newArticle := Article{}
+	var newArticle Article
 
-	_, err := frontmatter.Parse(strings.NewReader(article), &newArticle)
-	if err != nil {
+	if err := yaml.NewDecoder(strings.NewReader(article)).Decode(&newArticle); err != nil {
 		fmt.Println(err)
 	}
 
