@@ -2,29 +2,43 @@ package internal
 
 import (
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/assert"
 )
 
 func TestParseDateFormat(t *testing.T) {
-	mockDate := "2022-01-17 15:34"
-	parsedDate, err := ParseDate(mockDate)
+	testCases := []struct {
+		input       string
+		expected    time.Time
+		expectedErr bool
+	}{
+		{
+			input:       "2022-01-17 15:34",
+			expected:    time.Date(2022, time.January, 17, 15, 34, 0, 0, time.UTC),
+			expectedErr: false,
+		},
+		{
+			input:       "2022/01/17",
+			expectedErr: true,
+		},
+		{
+			input:       "2022-01-17 15:34:02",
+			expectedErr: true,
+		},
+	}
 
-	assert.Equal(t, nil, err, err)
-	assert.Equal(t, 2022, parsedDate.Year(), "Year doesn't match")
-	assert.Equal(t, "January", parsedDate.Month().String(), "Month string doesn't match")
-	assert.Equal(t, 1, int(parsedDate.Month()), "Month integer doesn't match")
-	assert.Equal(t, 17, parsedDate.Day(), "Day doesn't match")
-	assert.Equal(t, 15, parsedDate.Hour(), "Hour doesn't match")
-	assert.Equal(t, 34, parsedDate.Minute(), "Hour doesn't match")
-
-	mockDate = "2022/01/17"
-	_, err = ParseDate(mockDate)
-	assert.NotEqual(t, nil, err, err)
-
-	mockDate = "2022-01-17 15:34:02"
-	_, err = ParseDate(mockDate)
-	assert.NotEqual(t, nil, err, err)
+	for _, v := range testCases {
+		t.Run(v.input, func(t *testing.T) {
+			actual, err := ParseDate(v.input)
+			if v.expectedErr {
+				assert.Error(t, err)
+				return
+			}
+			assert.NoError(t, err)
+			assert.Equal(t, v.expected, actual)
+		})
+	}
 }
 
 func TestParsingMarkdown(t *testing.T) {
@@ -33,24 +47,24 @@ func TestParsingMarkdown(t *testing.T) {
 date: 2022-01-17 15:34
 author: 박찬성
 title: 첫 아티클
-thumbnail: https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png 
-link: https://github.com/codingpot/newsletter_awesome_articles 
+thumbnail: https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png
+link: https://github.com/codingpot/newsletter_awesome_articles
 summary: Coding Pot Newsletter Platform
 opinion: Looks amazing!
 tags: ["greeting", "mock", "oh-my"]
 ---
 `
 
-	article := ParseArticle(mockArticle)
-	// assert.Equal(t, 2022, article.Date.Year(), "wrong date")
-	assert.Equal(t, "박찬성", article.Author, "wrong author")
-	assert.Equal(t, "첫 아티클", article.Title, "wrong title")
-	assert.Equal(t, "https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png", article.Thumbnail, "wrong thumbnail")
-	assert.Equal(t, "https://github.com/codingpot/newsletter_awesome_articles", article.Link, "wrong link")
-	assert.Equal(t, "Coding Pot Newsletter Platform", article.Summary, "wrong summary")
-	assert.Equal(t, "Looks amazing!", article.Opinion, "wrong opinion")
-	assert.Equal(t, 3, len(article.Tags), "wrong length")
-	assert.Equal(t, "greeting", article.Tags[0], "first item is wrong")
-	assert.Equal(t, "mock", article.Tags[1], "second item is wrong")
-	assert.Equal(t, "oh-my", article.Tags[2], "third item is wrong")
+	expected := Article{
+		Date:      "2022-01-17 15:34",
+		Author:    "박찬성",
+		Title:     "첫 아티클",
+		Thumbnail: "https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png",
+		Link:      "https://github.com/codingpot/newsletter_awesome_articles",
+		Summary:   "Coding Pot Newsletter Platform",
+		Opinion:   "Looks amazing!",
+		Tags:      []string{"greeting", "mock", "oh-my"},
+	}
+
+	assert.Equal(t, expected, ParseArticle(mockArticle))
 }
