@@ -43,7 +43,6 @@ func TestParseDateFormat(t *testing.T) {
 
 func TestParsingMarkdown(t *testing.T) {
 	mockArticle := `
----
 date: 2022-01-17 15:34
 author: 박찬성
 title: 첫 아티클
@@ -52,7 +51,6 @@ link: https://github.com/codingpot/newsletter_awesome_articles
 summary: Coding Pot Newsletter Platform
 opinion: Looks amazing!
 tags: ["greeting", "mock", "oh-my"]
----
 `
 
 	expected := Article{
