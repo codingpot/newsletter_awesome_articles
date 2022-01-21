@@ -48,6 +48,7 @@ The referenced newsletter layout is below that I have used for other purposes.
 ## Todo
 
 - [X] Parsing Markdown
-- [ ] Filling Template
-- [ ] Sending Email
+- [X] Filling Template
+- [X] Sending Email
 - [ ] Move Current Markdowns to Archive
+- [ ] Write CI/CD script (GitHub Action)
