@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -17,7 +18,9 @@ func createDirIfNotExist(dest string) bool {
 	return false
 }
 
-func MoveFiles(filenames []string, to string) string {
+func MoveFiles(filenames []string, to string) []string {
+	result := []string{}
+
 	createDirIfNotExist(to)
 	seq_num := GetSequenceNumberFromDirs(to)
 	target_to := to + "/" + strconv.Itoa(seq_num)
@@ -25,15 +28,19 @@ func MoveFiles(filenames []string, to string) string {
 
 	for _, filename := range filenames {
 		original_filename := filename
-		_, filename := filepath.Split(filename)
 
-		err := os.Rename(original_filename, target_to+"/"+filename)
+		_, filename := filepath.Split(filename)
+		target_filename := target_to + "/" + filename
+
+		err := os.Rename(original_filename, target_filename)
 		if err != nil {
 			log.Fatal(err)
+		} else {
+			result = append(result, target_filename)
 		}
 	}
 
-	return target_to
+	return result
 }
 
 func GetSequenceNumberFromDirs(in string) int {
@@ -56,4 +63,20 @@ func GetSequenceNumberFromDirs(in string) int {
 	}
 
 	return count
+}
+
+func RecordArticleByTags(article Article, to string, where string) {
+	createDirIfNotExist(to)
+	for _, tag := range article.Tags {
+		// If the file doesn't exist, create it, or append to the file
+		filename := fmt.Sprintf("%s/%s.md", to, tag)
+		f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		link_string := fmt.Sprintf("- [%s](%s) / %s\n", article.Title, where, article.Date)
+		f.WriteString(link_string)
+		f.Close()
+	}
 }
