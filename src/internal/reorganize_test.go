@@ -24,33 +24,37 @@ func TestMoveFiles(t *testing.T) {
 	path5 := creatEmptyFile("../../current/empty5.yaml")
 
 	filenames := []string{path1, path2, path3, path4, path5}
-	dest, _ := filepath.Abs("../../archive")
+	parent_dest, _ := filepath.Abs("../../archive")
 
-	MoveFiles(filenames, dest)
+	dest := MoveFiles(filenames, parent_dest)
 
 	files, _ := ioutil.ReadDir(dest)
 	assert.Equal(t, 5, len(files), "not enough files")
 
 	os.RemoveAll(dest)
-	os.Mkdir(dest, 0700)
 
-	files, _ = ioutil.ReadDir(dest)
-	assert.Equal(t, 0, len(files), "not enough files")
+	_, err := os.Stat(dest)
+	assert.Equal(t, true, os.IsNotExist(err), "dest directory still exist")
 }
 
-func TestArchiveNumbering(t *testing.T) {
-	// dest, _ := filepath.Abs("../../archive")
+func TestSequenceNumbering(t *testing.T) {
+	// expect the archive directory exists
+	dest, _ := filepath.Abs("../../archive")
+	archiveNumber := GetSequenceNumberFromDirs(dest)
+	assert.Equal(t, 1, archiveNumber)
 
-	// archiveNumber := GetArchiveNumber(dest)
+	os.Mkdir(dest+"/1", 0700)
+	archiveNumber = GetSequenceNumberFromDirs(dest)
+	assert.Equal(t, 2, archiveNumber)
 
-	// path1 := creatEmptyFile("../../current/empty1.yaml")
-	// path2 := creatEmptyFile("../../current/empty2.yaml")
-	// path3 := creatEmptyFile("../../current/empty3.yaml")
-	// path4 := creatEmptyFile("../../current/empty4.yaml")
-	// path5 := creatEmptyFile("../../current/empty5.yaml")
+	os.Mkdir(dest+"/2", 0700)
+	archiveNumber = GetSequenceNumberFromDirs(dest)
+	assert.Equal(t, 3, archiveNumber)
 
-	// filenames := []string{path1, path2, path3, path4, path5}
-	// dest, _ := filepath.Abs("../../archive")
+	os.Mkdir(dest+"/shit", 0700)
+	archiveNumber = GetSequenceNumberFromDirs(dest)
+	assert.Equal(t, 3, archiveNumber)
 
-	// MoveFiles(filenames, dest)
+	os.RemoveAll(dest)
+	os.Mkdir(dest, 0700)
 }
