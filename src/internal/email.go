@@ -86,7 +86,7 @@ func (r *Request) Send(templateName string, items interface{}) {
 	}
 
 	if ok := r.sendMail(); ok {
-		fmt.Printf("Email has been sent to %s\n", r.to)
+		fmt.Printf("Email has been sent to   %s\n", r.to)
 	} else {
 		fmt.Printf("Failed to send the email to %s\n", r.to)
 	}
