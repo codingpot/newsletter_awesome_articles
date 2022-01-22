@@ -1,7 +1,0 @@
-- [여섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/1/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/2/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](archive/3/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](//blob/archive/4/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](//blob/archive/5/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/6/sixth.yaml) / 2022-01-06 15:34
-- [여섯 번째 아티클](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/7/sixth.yaml) / 2022-01-06 15:34
