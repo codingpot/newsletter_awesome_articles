@@ -23,7 +23,7 @@ jobs:
         env: 
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        run: cd .src && go run main.go publish current
+        run: cd ./src && go run main.go publish current
         
       - name: Commit Changes
         run: |
