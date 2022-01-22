@@ -1,3 +1,7 @@
+general:
+  github_repo_url: "https://github.com/codingpot/newsletter_awesome_articles"
+  git_branch: "main"
+
 email:
   title: "코딩맛집 뉴스레터"
   footer_title: "코딩맛집"

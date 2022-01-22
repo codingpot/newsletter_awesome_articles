@@ -23,9 +23,15 @@ type EmailConfig struct {
 	SectionTitle string `yaml:"section_title"`
 }
 
+type GeneralConfig struct {
+	GitHubRepoURL string `yaml:"github_repo_url"`
+	GitBranch     string `yaml:"git_branch"`
+}
+
 // Config Type
 type Config struct {
-	Email EmailConfig `yaml:"email"`
+	Email   EmailConfig   `yaml:"email"`
+	General GeneralConfig `yaml:"general"`
 }
 
 func GetConfigs(filename string) Config {
