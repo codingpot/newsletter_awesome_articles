@@ -30,8 +30,8 @@ type GeneralConfig struct {
 
 // Config Type
 type Config struct {
-	Email   EmailConfig   `yaml:"email"`
 	General GeneralConfig `yaml:"general"`
+	Email   EmailConfig   `yaml:"email"`
 }
 
 func GetConfigs(filename string) Config {
