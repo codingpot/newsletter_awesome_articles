@@ -19,7 +19,7 @@ func createDirIfNotExist(dest string) bool {
 	return false
 }
 
-func MoveFiles(filenames []string, to string) []string {
+func MoveFiles(filenames []string, to string, base string) []string {
 	result := []string{}
 
 	createDirIfNotExist(to)
@@ -37,9 +37,6 @@ func MoveFiles(filenames []string, to string) []string {
 		if err != nil {
 			log.Fatal(err)
 		} else {
-			general_config := GetConfigs("../../configs.yaml").General
-			base := fmt.Sprintf("%s/%s/blob/", general_config.GitHubRepoURL, general_config.GitBranch)
-
 			tokens := strings.Split(target_filename, "/")
 			rel_path := strings.Join(tokens[len(tokens)-3:], "/")
 			result = append(result, base+rel_path)

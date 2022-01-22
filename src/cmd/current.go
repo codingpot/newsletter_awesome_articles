@@ -28,7 +28,9 @@ to quickly create a Cobra application.`,
 		// - how to get argument
 		// topk, _ := cmd.Flags().GetInt("topk")
 
-		email_config := internal.GetConfigs("../configs.yaml").Email
+		config := internal.GetConfigs("../configs.yaml")
+		general_config := config.General
+		email_config := config.Email
 		// article := internal.Article{}
 		// 1. get YAML files in current directory
 		filenames := internal.GetListOfFilesAt("../current", ".yaml")
@@ -74,8 +76,9 @@ to quickly create a Cobra application.`,
 		r.Send("../templates", email)
 
 		// 5. archive
+		base := fmt.Sprintf("%s/blob/%s/", general_config.GitHubRepoURL, general_config.GitBranch)
 		archive_dest, _ := filepath.Abs("../archive")
-		archive_destinations := internal.MoveFiles(filenames, archive_dest)
+		archive_destinations := internal.MoveFiles(filenames, archive_dest, base)
 		fmt.Println(archive_destinations)
 
 		tag_dest, _ := filepath.Abs("../tags")
