@@ -65,9 +65,10 @@ func TestMoveFiles(t *testing.T) {
 	parent_dest, _ := filepath.Abs("../../archive")
 	base, _ := filepath.Abs("../..")
 
-	dest := MoveFiles(filenames, parent_dest, base)
+	dest := MoveFiles(filenames, parent_dest, base+"/")
 
 	base_dest, _ := filepath.Split(dest[0])
+	fmt.Println(base_dest)
 
 	files, _ := ioutil.ReadDir(base_dest)
 	assert.Equal(t, 5, len(files), "not enough files")
@@ -82,35 +83,35 @@ func TestSequenceNumbering(t *testing.T) {
 	os.RemoveAll("../../current")
 	os.RemoveAll("../../archive")
 	os.RemoveAll("../../tags")
-	os.Mkdir("../../current", 0644)
-	os.Mkdir("../../archive", 0644)
+	os.Mkdir("../../current", 0700)
+	os.Mkdir("../../archive", 0700)
 
 	// expect the archive directory exists
 	dest, _ := filepath.Abs("../../archive")
 	archiveNumber := GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 1, archiveNumber)
 
-	os.Mkdir(dest+"/1", 0644)
+	os.Mkdir(dest+"/1", 0700)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 2, archiveNumber)
 
-	os.Mkdir(dest+"/2", 0644)
+	os.Mkdir(dest+"/2", 0700)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 3, archiveNumber)
 
-	os.Mkdir(dest+"/shit", 0644)
+	os.Mkdir(dest+"/shit", 0700)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 3, archiveNumber)
 
 	os.RemoveAll(dest)
-	os.Mkdir(dest, 0644)
+	os.Mkdir(dest, 0700)
 }
 
 func TestArchiveByTags(t *testing.T) {
 	os.RemoveAll("../../current")
 	os.RemoveAll("../../archive")
-	os.Mkdir("../../current", 0644)
-	os.Mkdir("../../archive", 0644)
+	os.Mkdir("../../current", 0700)
+	os.Mkdir("../../archive", 0700)
 
 	mockArticle1 := `
 date: 2022-01-01 15:34
