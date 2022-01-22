@@ -67,7 +67,7 @@ to quickly create a Cobra application.`,
 
 		// 4. send email
 		sender_addr := os.Getenv("EMAIL")
-		sender_pass := os.Getenv("EMAIL_PASSWORD")
+		sender_pass := os.Getenv("PASSWORD")
 		fmt.Println(sender_addr)
 		fmt.Println(sender_pass)
 		subject := email_config.Title
