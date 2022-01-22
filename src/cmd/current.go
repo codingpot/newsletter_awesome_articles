@@ -65,9 +65,11 @@ to quickly create a Cobra application.`,
 		defer f.Close()
 
 		// 4. send email
+		sender_addr := os.Getenv("EMAIL")
+		sender_pass := os.Getenv("EMAIL_PASSWORD")
 		subject := "Get latest Tech News directly to your inbox"
 		receiver := "deep.diver.csp@gmail.com"
-		r := internal.NewRequest("codingpot.newsletter@gmail.com", "fkgickspzlxibxkm", []string{receiver}, subject)
+		r := internal.NewRequest(sender_addr, sender_pass, []string{receiver}, subject)
 		r.Send("../templates", email)
 
 		// 5. archive
