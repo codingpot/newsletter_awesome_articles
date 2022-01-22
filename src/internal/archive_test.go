@@ -52,8 +52,8 @@ func lineCounter(fileName string) int {
 func TestMoveFiles(t *testing.T) {
 	os.RemoveAll("../../current")
 	os.RemoveAll("../../archive")
-	os.Mkdir("../../current", 0644)
-	os.Mkdir("../../archive", 0644)
+	os.Mkdir("../../current", 0700)
+	os.Mkdir("../../archive", 0700)
 
 	path1 := creatEmptyFile("../../current/empty1.yaml")
 	path2 := creatEmptyFile("../../current/empty2.yaml")
@@ -90,20 +90,20 @@ func TestSequenceNumbering(t *testing.T) {
 	archiveNumber := GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 1, archiveNumber)
 
-	os.Mkdir(dest+"/1", 0700)
+	os.Mkdir(dest+"/1", 0644)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 2, archiveNumber)
 
-	os.Mkdir(dest+"/2", 0700)
+	os.Mkdir(dest+"/2", 0644)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 3, archiveNumber)
 
-	os.Mkdir(dest+"/shit", 0700)
+	os.Mkdir(dest+"/shit", 0644)
 	archiveNumber = GetSequenceNumberFromDirs(dest)
 	assert.Equal(t, 3, archiveNumber)
 
 	os.RemoveAll(dest)
-	os.Mkdir(dest, 0700)
+	os.Mkdir(dest, 0644)
 }
 
 func TestArchiveByTags(t *testing.T) {

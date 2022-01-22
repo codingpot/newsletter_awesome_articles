@@ -73,7 +73,10 @@ func RecordArticleByTags(article Article, to string, where string) {
 	for _, tag := range article.Tags {
 		// If the file doesn't exist, create it, or append to the file
 		filename := fmt.Sprintf("%s/%s.md", to, tag)
-		f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 	os.RemoveAll("../../current")
+		os.RemoveAll("../../archive")
+		os.Mkdir("../../current", 0644)
+		os.Mkdir("../../archive", 0644))
 		if err != nil {
 			log.Fatal(err)
 		}
