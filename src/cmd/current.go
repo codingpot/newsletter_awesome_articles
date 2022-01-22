@@ -28,6 +28,7 @@ to quickly create a Cobra application.`,
 		// - how to get argument
 		// topk, _ := cmd.Flags().GetInt("topk")
 
+		email_config := internal.GetConfigs("../configs.yaml").Email
 		// article := internal.Article{}
 		// 1. get YAML files in current directory
 		filenames := internal.GetListOfFilesAt("../current", ".yaml")
@@ -42,17 +43,17 @@ to quickly create a Cobra application.`,
 		fmt.Println(articleTuples)
 		// 3. fill out template
 		email := internal.Email{
-			Title:       "코딩맛집 뉴스레터",
-			FooterTitle: "코딩맛집",
+			Title:       email_config.Title,
+			FooterTitle: email_config.FooterTitle,
 			Header: internal.Head{
-				Title:                 "코딩맛집에서 발행하는 뉴스레터 입니다",
-				Description:           "이것은 뭥미?",
-				ImageURL:              "http://...",
-				CommunityLink:         "https://discord.gg/HGPnfzDdkG",
-				CommunityLinkBtnTitle: "커뮤니티 둘러보고 가입하러 가기",
+				Title:                 email_config.HeaderTitle,
+				Description:           email_config.HeaderDescription,
+				ImageURL:              email_config.HeaderImageURL,
+				CommunityLink:         email_config.CommunityLink,
+				CommunityLinkBtnTitle: email_config.CommunityLinkBtnTitle,
 			},
 			FirstSection: internal.Section{
-				Title: "이거슨.... 첫 번째 섹션 타이틀",
+				Title: email_config.SectionTitle,
 			},
 			ArticleTuples: articleTuples,
 		}
@@ -65,9 +66,11 @@ to quickly create a Cobra application.`,
 		defer f.Close()
 
 		// 4. send email
-		subject := "Get latest Tech News directly to your inbox"
+		sender_addr := os.Getenv("EMAIL")
+		sender_pass := os.Getenv("EMAIL_PASSWORD")
+		subject := email_config.Title
 		receiver := "deep.diver.csp@gmail.com"
-		r := internal.NewRequest("codingpot.newsletter@gmail.com", "fkgickspzlxibxkm", []string{receiver}, subject)
+		r := internal.NewRequest(sender_addr, sender_pass, []string{receiver}, subject)
 		r.Send("../templates", email)
 
 		// 5. archive
