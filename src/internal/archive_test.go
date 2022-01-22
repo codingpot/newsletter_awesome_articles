@@ -50,6 +50,11 @@ func lineCounter(fileName string) int {
 }
 
 func TestMoveFiles(t *testing.T) {
+	os.RemoveAll("../../current")
+	os.RemoveAll("../../archive")
+	os.Mkdir("../../current", 0644)
+	os.Mkdir("../../archive", 0644)
+
 	path1 := creatEmptyFile("../../current/empty1.yaml")
 	path2 := creatEmptyFile("../../current/empty2.yaml")
 	path3 := creatEmptyFile("../../current/empty3.yaml")
@@ -74,6 +79,12 @@ func TestMoveFiles(t *testing.T) {
 }
 
 func TestSequenceNumbering(t *testing.T) {
+	os.RemoveAll("../../current")
+	os.RemoveAll("../../archive")
+	os.RemoveAll("../../tags")
+	os.Mkdir("../../current", 0644)
+	os.Mkdir("../../archive", 0644)
+
 	// expect the archive directory exists
 	dest, _ := filepath.Abs("../../archive")
 	archiveNumber := GetSequenceNumberFromDirs(dest)
@@ -96,6 +107,11 @@ func TestSequenceNumbering(t *testing.T) {
 }
 
 func TestArchiveByTags(t *testing.T) {
+	os.RemoveAll("../../current")
+	os.RemoveAll("../../archive")
+	os.Mkdir("../../current", 0644)
+	os.Mkdir("../../archive", 0644)
+
 	mockArticle1 := `
 date: 2022-01-01 15:34
 author: 박찬성
