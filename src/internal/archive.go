@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 )
 
 func createDirIfNotExist(dest string) bool {
@@ -36,7 +37,9 @@ func MoveFiles(filenames []string, to string) []string {
 		if err != nil {
 			log.Fatal(err)
 		} else {
-			result = append(result, target_filename)
+			tokens := strings.Split(target_filename, "/")
+			rel_path := strings.Join(tokens[len(tokens)-3:], "/")
+			result = append(result, rel_path)
 		}
 	}
 
