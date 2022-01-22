@@ -1,2 +1,4 @@
 - [다섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/1/fifth.yaml) / 2022-01-05 15:34
 - [여섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/1/sixth.yaml) / 2022-01-06 15:34
+- [다섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/2/fifth.yaml) / 2022-01-05 15:34
+- [여섯 번째 아티클](/home/runner/work/newsletter_awesome_articles/newsletter_awesome_articles/archive/2/sixth.yaml) / 2022-01-06 15:34
