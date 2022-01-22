@@ -16,7 +16,7 @@ jobs:
       - name: Check how many 
         id: number_check
         run: |
-          echo "::set-output name=number::$(ls current/*.yaml | wc -l)"
+          echo "::set-output name=number::$(ls ./current/*.yaml | wc -l)"
 
       - name: Set up Go
         if: steps.number_check.outputs.number == 6
