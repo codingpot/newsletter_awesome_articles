@@ -2,5 +2,4 @@
 *
 # Except this files
 !.gitignore
-!.yaml
-!.yml
+!*.yaml
