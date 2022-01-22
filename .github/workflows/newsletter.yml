@@ -23,11 +23,12 @@ jobs:
         env: 
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-        run: cd ./src && go run main.go publish current
+        run: go run ./src/main.go publish current
         
       - name: Commit Changes
         run: |
           git config --global user.name 'Chansung'
           git config --global user.email 'deep.diver.csp@gmail.com'
-          git commit -am "Automated report"
+          git add .
+          git commit -m "Automated report"
           git push
