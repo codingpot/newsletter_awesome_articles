@@ -1,0 +1,11 @@
+email:
+  title: "코딩맛집 뉴스레터"
+  footer_title: "코딩맛집"
+  receivers:
+    - "deep.diver.csp@gmail.com"
+  header_title: "코딩맛집에서 발행하는 뉴스레터 입니다"
+  header_description: "재밌게 봐주십쇼!"
+  header_image_url: "http://..."
+  community_link: "https://discord.gg/HGPnfzDdkG"
+  community_link_btn_title: "커뮤니티 둘러보고 가입하러 가기"
+  section_title: "이거슨.... 첫 번째 섹션 타이틀"
