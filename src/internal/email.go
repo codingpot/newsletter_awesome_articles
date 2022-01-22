@@ -54,8 +54,8 @@ func NewRequest(from string, password string, to []string, subject string) *Requ
 	}
 }
 
-func (r *Request) parseTemplate(fileName string, data interface{}) error {
-	templateFilenames := GetTemplatesInDir("../../templates")
+func (r *Request) parseTemplate(templatePath string, data interface{}) error {
+	templateFilenames := GetTemplatesInDir(templatePath)
 
 	tmpl, _ := template.ParseFiles(templateFilenames...)
 
@@ -79,8 +79,8 @@ func (r *Request) sendMail() bool {
 	return true
 }
 
-func (r *Request) Send(templateName string, items interface{}) {
-	err := r.parseTemplate(templateName, items)
+func (r *Request) Send(templatePath string, items interface{}) {
+	err := r.parseTemplate(templatePath, items)
 	if err != nil {
 		log.Fatal(err)
 	}
