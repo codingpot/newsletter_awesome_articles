@@ -1,0 +1,21 @@
+name: send_newsletter
+
+on:
+  workflow_dispatch:
+
+#   push:
+#     branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Send Newsletter
+        env: 
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: cd .src && go run main.go publish current
