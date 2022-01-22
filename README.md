@@ -1,4 +1,4 @@
-[![ci](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml)
+[![ci](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/ci.yml)  [![send_newsletter](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/newsletter.yml/badge.svg)](https://github.com/codingpot/newsletter_awesome_articles/actions/workflows/newsletter.yml)
 
 # Publish Newsletter Curated by a Group of People
 
