@@ -58,8 +58,9 @@ func TestMoveFiles(t *testing.T) {
 
 	filenames := []string{path1, path2, path3, path4, path5}
 	parent_dest, _ := filepath.Abs("../../archive")
+	base, _ := filepath.Abs("../..")
 
-	dest := MoveFiles(filenames, parent_dest)
+	dest := MoveFiles(filenames, parent_dest, base)
 
 	base_dest, _ := filepath.Split(dest[0])
 
@@ -179,8 +180,9 @@ tags: ["first", "second", "third", "fourth", "fifth"]
 		"../../current/fourth.yaml",
 		"../../current/fifth.yaml"}
 	parent_dest, _ := filepath.Abs("../../archive")
+	base, _ := filepath.Abs("../..")
 
-	archive_destinations := MoveFiles(filenames, parent_dest)
+	archive_destinations := MoveFiles(filenames, parent_dest, base)
 
 	tag_dest, _ := filepath.Abs("../../tags")
 
