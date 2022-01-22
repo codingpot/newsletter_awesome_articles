@@ -51,4 +51,4 @@ The referenced newsletter layout is below that I have used for other purposes.
 - [X] Filling Template
 - [X] Sending Email
 - [X] Move Current Markdowns to Archive
-- [ ] Write CI/CD script (GitHub Action)
+- [X] Write CI/CD script (GitHub Action)
