@@ -68,8 +68,6 @@ to quickly create a Cobra application.`,
 		// 4. send email
 		sender_addr := os.Getenv("EMAIL")
 		sender_pass := os.Getenv("PASSWORD")
-		fmt.Println(sender_addr)
-		fmt.Println(sender_pass)
 		subject := email_config.Title
 		receiver := "deep.diver.csp@gmail.com"
 		r := internal.NewRequest(sender_addr, sender_pass, []string{receiver}, subject)
@@ -78,6 +76,7 @@ to quickly create a Cobra application.`,
 		// 5. archive
 		archive_dest, _ := filepath.Abs("../archive")
 		archive_destinations := internal.MoveFiles(filenames, archive_dest)
+		fmt.Println(archive_destinations)
 
 		tag_dest, _ := filepath.Abs("../tags")
 		for i, archive_destination := range archive_destinations {
