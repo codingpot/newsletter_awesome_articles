@@ -1,1 +1,0 @@
-- [자연어처리 튜토리얼](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 nlp-tutorial-repo.yaml) / 2022-01-23 22:09

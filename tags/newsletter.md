@@ -1,1 +1,0 @@
-- [오픈소스 뉴스레터 플랫폼](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 opensource-newsletter-platform.yaml) / 2022-01-23 21:56
