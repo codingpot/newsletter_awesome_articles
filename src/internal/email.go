@@ -14,6 +14,7 @@ type Head struct {
 	ImageURL              string
 	CommunityLink         string
 	CommunityLinkBtnTitle string
+	BgColor               string
 }
 
 type Section struct {
@@ -21,8 +22,10 @@ type Section struct {
 }
 
 type ArticleTuple struct {
-	Article1 Article
-	Article2 Article
+	Article1  Article
+	Article2  Article
+	LinkTitle string
+	BgColor   string
 }
 
 type Email struct {

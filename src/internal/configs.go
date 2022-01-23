@@ -21,6 +21,10 @@ type EmailConfig struct {
 	CommunityLinkBtnTitle string `yaml:"community_link_btn_title"`
 
 	SectionTitle string `yaml:"section_title"`
+
+	ContentLinkBtnTitle string `yaml:"content_link_btn_title"`
+
+	BgColor string `yaml:"bgcolor"`
 }
 
 type GeneralConfig struct {

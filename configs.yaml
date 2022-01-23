@@ -13,3 +13,5 @@ email:
   community_link: "https://discord.gg/HGPnfzDdkG"
   community_link_btn_title: "커뮤니티 둘러보고 가입하러 가기"
   section_title: "이거슨.... 첫 번째 섹션 타이틀"
+  content_link_btn_title: "원문으로 이동하기"
+  bgcolor: "#aad7ef"

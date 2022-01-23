@@ -41,7 +41,7 @@ to quickly create a Cobra application.`,
 			buf, _ := ioutil.ReadFile(filename)
 			articles = append(articles, internal.ParseArticle(string(buf)))
 		}
-		articleTuples := internal.ZipArticleTuples(articles)
+		articleTuples := internal.ZipArticleTuples(articles, email_config.ContentLinkBtnTitle, email_config.BgColor)
 		fmt.Println(articleTuples)
 		// 3. fill out template
 		email := internal.Email{
@@ -53,6 +53,7 @@ to quickly create a Cobra application.`,
 				ImageURL:              email_config.HeaderImageURL,
 				CommunityLink:         email_config.CommunityLink,
 				CommunityLinkBtnTitle: email_config.CommunityLinkBtnTitle,
+				BgColor:               email_config.BgColor,
 			},
 			FirstSection: internal.Section{
 				Title: email_config.SectionTitle,
