@@ -8,27 +8,16 @@ Even though the name says **Group of People**, it can be just you. The aim of th
 
 ## How to publish?
 
-It basically collects the number of markdowns under `/current` directory. The name of markdowns should be formatted as `YYYY-MM-DD hh:mm` because the newsletter system could pick up the most latest top-k ones.
+It basically collects every yaml files under `/current` directory. The name of yaml file should be formatted as `YYYY-MM-DD Title` so the files can be ordered correctly by themselves.
 
 ```shell
-# pseudo CLI
-
-$ newsletter publish current --top K
+# under src/ directory
+$ go run main.go publish current 
 ```
 
-## How to archive?
+## YAML format 
 
-When the newsletter system publishes a newsletter, it will collect up to top-k markdowns and move them to `/archive/issue{number}` directory. Also possibly, it will give you a way to send archieved newsletter afterwards with a CLI.
-
-```shell
-# pseudo CLI
-
-$ newsletter publish archive --issue NUMBER
-```
-
-## Markdown format 
-
-```md
+```yaml
 date: YYYY-MM-DD hh:mm
 author: author name
 title: title
