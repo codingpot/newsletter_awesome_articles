@@ -7,6 +7,7 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
+	"net/url"
 	"os"
 	"path/filepath"
 
@@ -80,11 +81,10 @@ to quickly create a Cobra application.`,
 		base := fmt.Sprintf("%s/blob/%s/", general_config.GitHubRepoURL, general_config.GitBranch)
 		archive_dest, _ := filepath.Abs("../archive")
 		archive_destinations := internal.MoveFiles(filenames, archive_dest, base)
-		fmt.Println(archive_destinations)
 
 		tag_dest, _ := filepath.Abs("../tags")
 		for i, archive_destination := range archive_destinations {
-			internal.RecordArticleByTags(articles[i], tag_dest, archive_destination)
+			internal.RecordArticleByTags(articles[i], tag_dest, url.QueryEscape(archive_destination))
 		}
 	},
 }
