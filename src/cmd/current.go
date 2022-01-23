@@ -7,7 +7,6 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
-	"net/url"
 	"os"
 	"path/filepath"
 
@@ -84,7 +83,7 @@ to quickly create a Cobra application.`,
 
 		tag_dest, _ := filepath.Abs("../tags")
 		for i, archive_destination := range archive_destinations {
-			internal.RecordArticleByTags(articles[i], tag_dest, url.QueryEscape(archive_destination))
+			internal.RecordArticleByTags(articles[i], tag_dest, archive_destination)
 		}
 	},
 }

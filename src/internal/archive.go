@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -31,7 +32,7 @@ func MoveFiles(filenames []string, to string, base string) []string {
 		original_filename := filename
 
 		_, filename := filepath.Split(filename)
-		target_filename := target_to + "/" + filename
+		target_filename := target_to + "/" + url.QueryEscape(filename)
 
 		err := os.Rename(original_filename, target_filename)
 		if err != nil {
