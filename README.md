@@ -32,7 +32,7 @@ tags: ["tag1", "tag2"]
 
 The referenced newsletter layout is below that I have used for other purposes.
 
-![](https://i.ibb.co/72SHsZn/Screen-Shot-2022-01-23-at-10-28-56-PM.png)
+![](https://i.ibb.co/NLN2Lhq/Screen-Shot-2022-01-23-at-10-57-12-PM.png)
 
 ## Todo
 
