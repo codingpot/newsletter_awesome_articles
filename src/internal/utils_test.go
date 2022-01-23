@@ -25,30 +25,30 @@ func TestGetListOfFiles(t *testing.T) {
 func TestGenerateArticleTuples(t *testing.T) {
 	articles := []Article{}
 	articles = append(articles, Article{})
-	articleTuples := ZipArticleTuples(articles)
+	articleTuples := ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 1, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 1, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 2, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 2, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 3, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 3, len(articleTuples))
 
 	articles = append(articles, Article{})
-	articleTuples = ZipArticleTuples(articles)
+	articleTuples = ZipArticleTuples(articles, "게시글로 이동", "orange")
 	assert.Equal(t, 4, len(articleTuples))
 }

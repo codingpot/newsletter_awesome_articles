@@ -21,14 +21,16 @@ func GetListOfFilesAt(in string, extension string) []string {
 	return filenames
 }
 
-func ZipArticleTuples(articles []Article) []ArticleTuple {
+func ZipArticleTuples(articles []Article, linkTitle, bgColor string) []ArticleTuple {
 	articleTuples := []ArticleTuple{}
 
 	if len(articles) == 1 {
 		articleTuples = append(articleTuples,
 			ArticleTuple{
-				Article1: articles[0],
-				Article2: Article{},
+				Article1:  articles[0],
+				Article2:  Article{},
+				LinkTitle: linkTitle,
+				BgColor:   bgColor,
 			})
 		return articleTuples
 	}
@@ -37,14 +39,18 @@ func ZipArticleTuples(articles []Article) []ArticleTuple {
 		if i+1 == len(articles) {
 			articleTuples = append(articleTuples,
 				ArticleTuple{
-					Article1: articles[i],
-					Article2: Article{},
+					Article1:  articles[i],
+					Article2:  Article{},
+					LinkTitle: linkTitle,
+					BgColor:   bgColor,
 				})
 		} else {
 			articleTuples = append(articleTuples,
 				ArticleTuple{
-					Article1: articles[i],
-					Article2: articles[i+1],
+					Article1:  articles[i],
+					Article2:  articles[i+1],
+					LinkTitle: linkTitle,
+					BgColor:   bgColor,
 				})
 		}
 	}
