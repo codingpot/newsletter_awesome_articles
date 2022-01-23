@@ -1,0 +1,1 @@
+- [AI 논문과 코드를 매핑한 프로젝트](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 paper-code-mapping.yaml) / 2022-01-23 22:16

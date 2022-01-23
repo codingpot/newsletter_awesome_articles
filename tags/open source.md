@@ -1,0 +1,4 @@
+- [GCP AutoML로 실현하는 MLOps](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 gcp-automl-mlops.yaml) / 2022-01-23 22:20
+- [자연어처리 튜토리얼](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 nlp-tutorial-repo.yaml) / 2022-01-23 22:09
+- [오픈소스 뉴스레터 플랫폼](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 opensource-newsletter-platform.yaml) / 2022-01-23 21:56
+- [AI 논문과 코드를 매핑한 프로젝트](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23 paper-code-mapping.yaml) / 2022-01-23 22:16
