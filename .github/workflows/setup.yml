@@ -21,7 +21,8 @@ jobs:
     
     - name: remove old files
       run: |
-        cd ./src && rm go.mod go.sum
+        cd src
+        rm go.mod go.sum
     
     - name: modify files
       run: |
@@ -50,7 +51,6 @@ jobs:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'      
       run: | 
         echo github.com/$username/$repo_name
-        cd ./src
         go mod init github.com/$username/$repo_name
         go mod tidy
         
@@ -61,7 +61,6 @@ jobs:
         git config --global user.name "${GH_USERNAME}"
         git checkout -B automated-setup
         git rm .github/workflows/setup.yml
-        git add go.mod go.sum
         git add .
         git commit -m'setup repo'
         git push -f --set-upstream origin automated-setup
