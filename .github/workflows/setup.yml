@@ -23,6 +23,12 @@ jobs:
         run: |
           cd src
           rm go.mod go.sum
+          
+      - name: remove unnecessary files
+        run: |
+          rm .github/workflows/ci.yml
+          rm .github/workflows/setup.yml
+          rm src/internal/*_test.go
 
       - name: modify files
         run: |
