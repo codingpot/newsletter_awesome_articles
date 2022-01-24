@@ -9,7 +9,7 @@ Even though the name says **Group of People**, it can be just you. The aim of th
 2. Create a PR for the write-up and merge it.
 3. If merged PRs exceeds the number of **N**, a newsletter contains those contents will be published.
 4. Published newsletters will be archived under `archive` directory by assigning the issue number.
-5. + Also they will be archived by assigned tags (Markdown for each tag will be created, then each markdown contains a list of links to the original YAML file)
+5. Also they will be archived by assigned tags (Markdown for each tag will be created, then each markdown contains a list of links to the original YAML file)
 
 > Correction: Below image says __markdown__ but it has changed to __yaml__.
 
