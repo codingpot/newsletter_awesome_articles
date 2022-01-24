@@ -36,16 +36,19 @@ jobs:
           current_go_path = Path('src/cmd/current.go')
           main_go_path = Path('src/main.go')
           readme_path = Path('README.md')
+          main_go_template_path = Path('templates/main_contents.gohtml')
 
           config = config_path.read_text().replace('codingpot/newsletter_awesome_articles', username + '/' + repo_name)
           current_go = current_go_path.read_text().replace('codingpot/newsletter_awesome_articles', username + '/' + repo_name)
           main_go = main_go_path.read_text().replace('codingpot/newsletter_awesome_articles', username + '/' + repo_name)
           readme = readme_path.read_text().replace('codingpot/newsletter_awesome_articles', username + '/' + repo_name)
+          main_go_template = main_go_template_path.read_text().replace('codingpot/newsletter_awesome_articles', username + '/' + repo_name)
 
           config_path.write_text(config)
           current_go_path.write_text(current_go)
           main_go_path.write_text(main_go)
           readme_path.write_text(readme)
+          main_go_template_path.write_text(main_go_template)
         shell: python
 
       - name: get unsername and reponame
