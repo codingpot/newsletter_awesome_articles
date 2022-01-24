@@ -4,17 +4,34 @@
 
 Even though the name says **Group of People**, it can be just you. The aim of this project is to publish and archive newsletters to a target email address. 
 
+1. Write a content to be included in newsletter in YAML format under `current` directory.
+    - Examples can be found in [test](https://github.com/codingpot/newsletter_awesome_articles/tree/main/test) directory.
+2. Create a PR for the write-up and merge it.
+3. If merged PRs exceeds the number of **N**, a newsletter contains those contents will be published.
+4. Published newsletters will be archived under `archive` directory by assigning the issue number.
+5. + Also they will be archived by assigned tags (Markdown for each tag will be created, then each markdown contains a list of links to the original YAML file)
+
 > Correction: Below image says __markdown__ but it has changed to __yaml__.
 
 ![](https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png)
 
+## Prerequisite
+
+You need to create GitHub Secrets named `EMAIL` and `EMAIL_PASSWORD` with appropriate values. Those values will be used in `.github/workflows/newsletter.yml` GitHub Action file to send out emails. 
+
 ## How to publish?
 
-It basically collects every yaml files under `/current` directory. The name of yaml file should be formatted as `YYYY-MM-DD Title` so the files can be ordered correctly by themselves.
+It basically collects every yaml files under `/current` directory. The name of yaml file should be formatted as `YYYY-MM-DD Title` so the files can be ordered correctly by themselves. The CLI below shows how to publish a newsletter manually. 
 
 ```shell
 # under src/ directory
 $ go run main.go publish current 
+```
+
+If you want to publish a newsletter based on GitHub Action, you need to configure `.github/workflows/newsletter.yml`. By default, it publish a newsletter when there are **four** yaml files in `current` directory. However, you can change the number of yaml files to trigger the publishing behaviour. Just change every line(below) of `newsletter.yml` as you like.
+
+```yml
+steps.number_check.outputs.number == HOW_MANY_YAML_FILES
 ```
 
 ## YAML format 
@@ -38,8 +55,8 @@ The referenced newsletter layout is below that I have used for other purposes.
 
 ## Todo
 
-- [X] Parsing Markdown
+- [X] Parsing YAML
 - [X] Filling Template
 - [X] Sending Email
-- [X] Move Current Markdowns to Archive
+- [X] Move Current YAMLs to Archive
 - [X] Write CI/CD script (GitHub Action)
