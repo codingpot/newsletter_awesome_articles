@@ -11,9 +11,8 @@ Even though the name says **Group of People**, it can be just you. The aim of th
 4. Published newsletters will be archived under `archive` directory by assigning the issue number.
 5. Also they will be archived by assigned tags (Markdown for each tag will be created, then each markdown contains a list of links to the original YAML file)
 
-> Correction: Below image says __markdown__ but it has changed to __yaml__.
-
-![](https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png)
+![](https://i.ibb.co/2WT5H4P/flow1.png)
+![](https://i.ibb.co/Tcr8RFL/flow2.png)
 
 ## Prerequisite
 
