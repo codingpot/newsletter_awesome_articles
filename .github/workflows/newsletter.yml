@@ -2,17 +2,17 @@ name: send_newsletter
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-    if: (github.event.commits[0].message != 'Initial commit') && (github.run_number != 1)  
+    if: (github.event.commits[0].message != 'Initial commit') && (github.run_number != 1)
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Check how many 
+      - name: Check how many
         id: number_check
         run: |
           echo "::set-output name=number::$(ls ./current/*.yaml | wc -l)"
@@ -25,14 +25,14 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Send Newsletter
-        if: steps.number_check.outputs.number == 4      
-        env: 
+        if: steps.number_check.outputs.number == 4
+        env:
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: cd ./src && go run main.go publish current
-        
+
       - name: Commit Changes
-        if: steps.number_check.outputs.number == 4      
+        if: steps.number_check.outputs.number == 4
         run: |
           git config --global user.name 'Chansung'
           git config --global user.email 'deep.diver.csp@gmail.com'
