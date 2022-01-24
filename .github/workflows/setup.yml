@@ -67,7 +67,6 @@ jobs:
         
     - name: commit changes
       run: |
-        cd ../
         git config --global user.email "${GH_EMAIL}"
         git config --global user.name "${GH_USERNAME}"
         git checkout -B automated-setup
