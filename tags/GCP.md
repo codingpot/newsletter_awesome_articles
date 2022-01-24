@@ -1,1 +1,0 @@
-- [GCP AutoML로 실현하는 MLOps](https://github.com/codingpot/newsletter_awesome_articles/blob/main/archive/1/2022-01-23+gcp-automl-mlops.yaml) / 2022-01-23 22:20
