@@ -43,9 +43,12 @@ to quickly create a Cobra application.`,
 		}
 		articleTuples := internal.ZipArticleTuples(articles, email_config.ContentLinkBtnTitle, email_config.BgColor)
 		fmt.Println(articleTuples)
+
+		tag_dest, _ := filepath.Abs("../tags")
+		seqNum := internal.GetSequenceNumberFromDirs(tag_dest)
 		// 3. fill out template
 		email := internal.Email{
-			Title:       email_config.Title,
+			Title:       fmt.Sprintf("%s #%d", email_config.Title, seqNum),
 			FooterTitle: email_config.FooterTitle,
 			Header: internal.Head{
 				Title:                 email_config.HeaderTitle,
@@ -81,7 +84,6 @@ to quickly create a Cobra application.`,
 		archive_dest, _ := filepath.Abs("../archive")
 		archive_destinations := internal.MoveFiles(filenames, archive_dest, base)
 
-		tag_dest, _ := filepath.Abs("../tags")
 		for i, archive_destination := range archive_destinations {
 			internal.RecordArticleByTags(articles[i], tag_dest, archive_destination)
 		}
