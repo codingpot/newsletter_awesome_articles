@@ -3,15 +3,16 @@ general:
   git_branch: "main"
 
 email:
-  title: "코딩맛집 뉴스레터"
-  footer_title: "코딩맛집"
+  title: "email title"
+  footer_title: "email footer title"
   receivers:
-    - "codingpotnewsletter@googlegroups.com"
-  header_title: "코딩맛집에서 발행하는 뉴스레터 입니다"
-  header_description: "재밌게 봐주십쇼!"
-  header_image_url: "https://i.ibb.co/7k7Cs9x/codingpot-logo.png"
-  community_link: "https://discord.gg/HGPnfzDdkG"
-  community_link_btn_title: "커뮤니티 둘러보고 가입하러 가기"
-  section_title: "유용한 자료 요약 및 링크"
-  content_link_btn_title: "원문으로 이동하기"
-  bgcolor: "#aad7ef"
+    - receiver1
+    - receiver2
+  header_title: "newsletter name"
+  header_description: "have a good read!"
+  header_image_url: "https://..."
+  community_link: "https://..."
+  community_link_btn_title: "title of the link to your community"
+  section_title: "what information does this newsletter deliver?"
+  content_link_btn_title: "title of the buttn to show in each content"
+  bgcolor: "orange"
