@@ -48,9 +48,7 @@ func MoveFiles(filenames []string, to string, base string) []string {
 }
 
 func GetSequenceNumberFromDirs(in string) int {
-	if createDirIfNotExist(in) {
-		return -1
-	}
+	createDirIfNotExist(in)
 
 	files, err := ioutil.ReadDir(in)
 	if err != nil {
