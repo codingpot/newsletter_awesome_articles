@@ -4,6 +4,8 @@
 
 Even though the name says **Group of People**, it can be just you. The aim of this project is to publish and archive newsletters to a target email address. 
 
+> Correction: Below image says __markdown__ but it has changed to __yaml__.
+
 ![](https://github.com/codingpot/newsletter_awesome_articles/blob/main/assets/overview.png)
 
 ## How to publish?
