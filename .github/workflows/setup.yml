@@ -60,6 +60,7 @@ jobs:
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'      
       run: | 
+        cd src
         echo github.com/$username/$repo_name
         go mod init github.com/$username/$repo_name
         go mod tidy
